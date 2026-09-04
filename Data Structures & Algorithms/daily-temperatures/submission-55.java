@@ -1,0 +1,22 @@
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] result = new int[temperatures.length];
+
+        for(int i = 0; i < temperatures.length; i++) {
+            int curr_T = temperatures[i];
+
+            while(  curr_T > temperatures[stack.peek()] ) {
+                int past_days = temperatures[stack.pop()];
+                stack.push(i);
+                result[i] = (i - past_days);
+            }
+            if( stack.isEmpty() ) {
+                stack.push(i);
+            }
+            
+            
+        }
+        return result;
+    }
+}
