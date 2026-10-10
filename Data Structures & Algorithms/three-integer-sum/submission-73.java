@@ -1,0 +1,25 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1; 
+        List<List<Integer>> list = new ArrayList<>(); 
+        Arrays.sort(nums); 
+
+
+        while( left < right ) {
+            int i = left + 1; 
+            while( left == i ) {
+                i++; 
+            }
+            int sum = nums[left] + nums[i] + nums[right];
+             
+            if( sum == 0 ){
+                list.add( Arrays.asList(nums[left], nums[i], nums[right]) ); 
+                left++; 
+                right--; 
+            }
+            // else if( )
+        }
+        return list; 
+    }
+}
